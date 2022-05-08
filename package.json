@@ -1,0 +1,27 @@
+{
+  "name": "ports-and-adapters",
+  "version": "0.0.1",
+  "description": "This project is just a worksheet a place where try stuff",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "tsc && node dist/main.js",
+    "test": "jest"
+  },
+  "repository": "git@github.com:datalek/typescript-worksheet.git",
+  "author": "rakhov",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/jest": "^27.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
+    "eslint": "^8.10.0",
+    "jest": "^28.1.0",
+    "ts-jest": "^28.0.1",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "fp-ts": "^2.11.8",
+    "io-ts": "^2.2.16"
+  }
+}
