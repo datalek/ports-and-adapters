@@ -1,7 +1,10 @@
-.PHONY: test start
+.PHONY: clean test start
+
+clean:
+	yarn clean
 
 test:
 	yarn test
 
-start:
-	yarn start
+run:
+	yarn run

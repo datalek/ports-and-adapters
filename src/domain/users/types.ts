@@ -1,8 +1,11 @@
+interface UserIdBrand {
+  readonly UserId: unique symbol;
+}
 
 export type UserId =
-  string & { _tag: "UserId" }
+  string & { _tag: UserIdBrand }
 
-export interface User
+export type User =
   { id: UserId
   , firstName: string
   , lastName: string

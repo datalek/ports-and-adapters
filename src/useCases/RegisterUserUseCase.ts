@@ -1,13 +1,18 @@
 import * as TE from "fp-ts/TaskEither";
+import { GenericError, InvalidInput, makeInvalidInput } from "../domain/DomainError";
 import { User, UserDefinition } from "../domain/users/types";
 import { UserRepository } from "../domain/users/UserRepository";
 
 type RegisterUserError =
-  | "InvalidAge"
-  | "InvalidFirstName"
+  | GenericError
+  | InvalidInput
+
+export type RegisterUserUseCase =
+  (definition: UserDefinition) =>
+  TE.TaskEither<RegisterUserError, User>
 
 export const RegisterUserUseCase =
-  (userRepository: UserRepository) =>
-  (definition: UserDefinition): TE.TaskEither<RegisterUserError, User> => {
-    return TE.left("InvalidAge")
-  }
+  (userRepository: UserRepository): RegisterUserUseCase =>
+  (definition) => {
+    return TE.left(makeInvalidInput("Invalid"))
+}
