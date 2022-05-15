@@ -6,8 +6,8 @@
   "scripts": {
     "clean": "tsc --build --clean",
     "compile": "tsc",
-    "run": "tsc && node dist/main.js",
-    "test": "jest"
+    "start": "tsc && node -r dotenv/config dist/main.js dotenv_config_path=.env.default",
+    "test": "DOTENV_CONFIG_PATH=./.env.default jest --setupFiles dotenv/config -i"
   },
   "repository": "git@github.com:datalek/typescript-worksheet.git",
   "author": "rakhov",
@@ -18,6 +18,7 @@
     "@types/jest": "^27.5.0",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
+    "dotenv": "^16.0.1",
     "eslint": "^8.10.0",
     "jest": "^28.1.0",
     "ts-jest": "^28.0.1",

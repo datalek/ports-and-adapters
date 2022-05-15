@@ -6,5 +6,5 @@ clean:
 test:
 	yarn test
 
-run:
-	yarn run
+start:
+	yarn start
