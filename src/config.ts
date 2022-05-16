@@ -1,4 +1,5 @@
 import * as t from "io-ts";
+import * as tt from "io-ts-types";
 import * as E from "fp-ts/Either";
 import * as PR from "io-ts/PathReporter";
 import { pipe } from "fp-ts/lib/function";
@@ -11,7 +12,7 @@ export type Config = {
 }
 
 const EnvCodec = t.type({
-  PORT: t.number,
+  PORT: t.string.pipe(tt.NumberFromString),
   HOSTNAME: t.string,
 })
 
