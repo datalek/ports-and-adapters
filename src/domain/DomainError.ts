@@ -8,6 +8,11 @@ type BaseError = {
 
 export type NotFoundError =
   BaseError & { kind: "NotFound" }
+export const makeNotFoundError = (): NotFoundError => ({
+  message: "Entity not found",
+  causedBy: undefined,
+  kind: "NotFound",
+})
 
 export type NotImplemented =
   BaseError & { kind: "NotImplemented" }
