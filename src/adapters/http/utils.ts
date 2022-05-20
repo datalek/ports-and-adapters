@@ -8,14 +8,14 @@ import { makeInvalidInput } from "../../domain/DomainError";
 
 export const sendResponse =
   (res: express.Response) =>
-  <T0, T1>(left: (t0: T0) => void, right: (t1: T1) => void) =>
-  (arg: E.Either<t.Errors, TE.TaskEither<T0, T1>>): void => {
-    pipe(
+  <T0, T1>(left: (t0: T0) => express.Response, right: (t1: T1) => express.Response) =>
+  (arg: E.Either<t.Errors, TE.TaskEither<T0, T1>>): Promise<express.Response> => {
+    return pipe(
       E.mapLeft(makeInvalidInput("Input Error"))(arg),
       E.fold(
         (invalidInput) => {
           const { message, details } = invalidInput
-          res.status(400).send({ error: message, details: details })
+          return Promise.resolve(res.status(400).send({ error: message, details: details }))
         },
         (te) =>
           pipe(
@@ -24,7 +24,8 @@ export const sendResponse =
               (l) => TE.of(left(l)),
               (r) => TE.of(right(r))
             ),
-            (te) => te()
+            TE.toUnion,
+            (te) => te(),
           )
       ),
     )
