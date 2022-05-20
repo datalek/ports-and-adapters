@@ -1,6 +1,7 @@
+import * as O from "fp-ts/Option";
 import * as TE from "fp-ts/TaskEither";
 import { GenericError } from "../DomainError";
-import { User, UserDefinition } from "./types";
+import { User, UserDefinition, UserId } from "./types";
 
 export interface UserRepository {
   /**
@@ -8,4 +9,8 @@ export interface UserRepository {
    */
   insert: (definition: UserDefinition) => TE.TaskEither<GenericError, User>
 
+  /*
+   * Given a user id return the user
+   */
+  find: (id: UserId) => TE.TaskEither<GenericError, O.Option<User>>
 }
