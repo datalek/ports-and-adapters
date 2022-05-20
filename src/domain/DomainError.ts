@@ -27,28 +27,18 @@ export type InvalidInput =
     details: ReadonlyArray<string>
   }
 export const makeInvalidInput =
-  (message: string): InvalidInput => ({
-    message,
-    details: [],
-    causedBy: undefined,
-    kind: "InvalidInput"
-  })
+  (message: string) =>
+  (errors: Errors | undefined): InvalidInput => {
+    return {
+      message: message,
+      details: errors ? PR.failure(errors) : [],
+      causedBy: undefined,
+      kind: "InvalidInput"
+    }
+  }
 
 export type DomainError =
   | NotFoundError
   | NotImplemented
   | InvalidInput
   | GenericError
-
-/**
- * Create a DomainError given an Errors
- */
-export const makeDomainError = (errors: Errors): DomainError => {
-  const errorMsg = PR.failure(errors)
-  return {
-    details: errorMsg,
-    message: "Invalid Format",
-    causedBy: undefined,
-    kind: "InvalidInput"
-  }
-}

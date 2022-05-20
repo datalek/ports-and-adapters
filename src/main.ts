@@ -1,3 +1,4 @@
+import * as crypto from "crypto";
 import * as E from "fp-ts/Either";
 import { pipe } from "fp-ts/lib/function";
 import { RegisterUserUseCase } from "./useCases/RegisterUserUseCase"
@@ -8,7 +9,7 @@ import { parseConfig } from "./config";
 pipe(
   parseConfig(process.env),
   E.map((config) => {
-    const userRepository = inmemory.makeUserRepository()
+    const userRepository = inmemory.makeUserRepository(crypto.randomUUID, [])
     const registerUserUseCase = RegisterUserUseCase(userRepository)
 
     const application = http.makeApplication(registerUserUseCase)
