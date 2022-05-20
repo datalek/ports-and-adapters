@@ -1,18 +1,20 @@
 import * as http from "http";
 import express from "express";
-import { RegisterUserUseCase } from "../../useCases/RegisterUserUseCase";
 import * as users from "./users/router";
+import { RegisterUserUseCase } from "../../useCases/RegisterUserUseCase";
+import { FindUserUseCase } from "../../useCases/FindUserUseCase";
 import { Config } from "../../config";
 
 export const makeApplication = (
-  registerUserUseCase: RegisterUserUseCase
+  registerUserUseCase: RegisterUserUseCase,
+  findUserUseCase: FindUserUseCase
 ): express.Application => {
   const application = express()
 
   application.use(express.json())
 
   // mount user router
-  application.use(users.makeRouter(registerUserUseCase))
+  application.use(users.makeRouter(registerUserUseCase, findUserUseCase))
 
   return application;
 }

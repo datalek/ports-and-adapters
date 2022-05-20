@@ -7,10 +7,13 @@ export const APIUserDefinition = t.strict({
   age: t.number,
 });
 
+export const APIUserId =
+  t.string
+
 export const APIUser =
   t.intersection([
     APIUserDefinition,
-    t.strict({ id: t.string })
+    t.strict({ id: APIUserId })
   ])
 export type APIUser = t.TypeOf<typeof APIUser>
 
