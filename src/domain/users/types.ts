@@ -13,3 +13,14 @@ export type User =
 
 export type UserDefinition =
   Omit<User, "id">;
+
+export const makeUserId =
+  (str: string) =>
+  str as UserId
+
+export const makeUser =
+  (id: UserId) =>
+  (definition: UserDefinition) => ({
+    id,
+    ...definition
+  })
