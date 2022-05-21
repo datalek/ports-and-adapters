@@ -43,8 +43,6 @@ export const makeRouter = (
 ): express.Router => {
   const router = express.Router();
 
-  router.use(express.json())
-
   router.get("/users/:userId", getUserHandler(findUserUseCase))
   router.post("/users", postUsersHandler(registerUserUseCase));
 
