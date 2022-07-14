@@ -1,6 +1,6 @@
 import express from "express";
 import * as t from "io-ts";
-import { pipe } from "fp-ts/lib/function";
+import { flow, pipe } from "fp-ts/lib/function";
 import * as O from "fp-ts/Option";
 import * as E from "fp-ts/Either";
 import * as TE from "fp-ts/TaskEither";
@@ -17,16 +17,14 @@ export const sendResponse =
           const { message, details } = invalidInput
           return Promise.resolve(res.status(400).send({ error: message, details: details }))
         },
-        (te) =>
-          pipe(
-            te,
-            TE.fold(
-              (l) => TE.of(left(l)),
-              (r) => TE.of(right(r))
-            ),
-            TE.toUnion,
-            (te) => te(),
-          )
+        flow(
+          TE.fold(
+            (l) => TE.of(left(l)),
+            (r) => TE.of(right(r))
+          ),
+          TE.toUnion,
+          (te) => te(),
+        )
       ),
     )
 }
