@@ -10,10 +10,14 @@ import { parseConfig } from "./config";
 pipe(
   parseConfig(process.env),
   E.map((config) => {
+    // create the driven adapters
     const userRepository = inmemory.makeUserRepository(crypto.randomUUID, [])
+
+    // initialize the use cases
     const registerUserUseCase = RegisterUserUseCase(userRepository)
     const findUserUseCase = FindUserUseCase(userRepository)
 
+    // create the driving adapters
     const application = http.makeApplication(registerUserUseCase, findUserUseCase)
     http.startApplication(config, application)
   }),

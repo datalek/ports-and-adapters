@@ -1,3 +1,3 @@
 # Ports and Adapters
 
-Simple example of ports and adapters structure
+Simple example of ports and adapters structure.
