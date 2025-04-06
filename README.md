@@ -30,3 +30,30 @@ npm run <cmd>
 # example
 npm run dev
 ```
+
+## Run the application
+
+Follow these steps to get the app up and running locally:
+
+1. **Install dependencies**
+  Install all required packages using:
+
+  ``` sh
+  npm i
+  ```
+
+2. **Set Up Environment Variables**
+  The environment configuration is defined in [config.ts](./src/config.ts) and loaded from a local `.env` file. To create your `.env` file, use the provided example:
+
+  ``` sh
+  cp .env.example .env
+  ```
+
+  Then update the values as needed for your local setup.
+
+3. **Start the Development Server**
+  Launch the application in development mode with:
+
+  ``` sh
+  npm run dev
+  ```

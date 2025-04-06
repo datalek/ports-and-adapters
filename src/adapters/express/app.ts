@@ -3,12 +3,13 @@ import { makeRegisterUserHandler } from './register-users.js';
 import { LoggerEnv } from '../../domain/logger.js';
 import { UserEnv } from '../../domain/users.js';
 import { EmailEnv } from '../../domain/email.js';
+import { Config } from '../../config.js';
 
 export type AppEnv = LoggerEnv & UserEnv & EmailEnv;
 
-export const makeApp = (env: AppEnv) => {
+export const makeApp = (config: Config, env: AppEnv) => {
   const app = express();
-  const port = 3000;
+  const { port } = config.server;
   // eslint-disable-next-line functional/no-expression-statements
   app.use(express.json());
 

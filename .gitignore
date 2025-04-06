@@ -252,3 +252,6 @@ cabal.project.local~
 .ghc.environment.*
 
 # End of https://www.toptal.com/developers/gitignore/api/emacs,node,macos
+
+# Exclude local env which can contain secrets
+.env
