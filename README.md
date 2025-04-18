@@ -8,17 +8,8 @@ It includes a fake user registration feature.
 
 This project requires the following tools to works as expected. Make sure to install all the following dependencies using the recommended installation methods.
 
-- **Node.js**
-  Use [nodenv](https://github.com/nodenv/nodenv) to install the required version of `Node.js`.
-
-  ```sh
-  nodenv install $(node -p "require('./package.json').engines.node")
-  # check that the installed version is correct
-  node --version
-  ```
-
-- **npm**
-  When you install `Node.js`, `npm` (Node Package Manager) is included by default — you don’t need to install it separately.
+- **Deno**
+  Follow the [installation](https://docs.deno.com/runtime/getting_started/installation/) page of deno website.
 
 ## Tasks
 

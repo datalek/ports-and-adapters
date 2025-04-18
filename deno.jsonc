@@ -1,0 +1,45 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-env --allow-net --env-file src/main.ts",
+    // "build": "tsc",
+    "typecheck": "deno check",
+    "lint": "deno run npm:eslint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+    // from package.json
+    // "start": "deno run src/main.ts",
+    // "test": "deno test",
+    // "format": "deno fmt",
+    // "lint": "deno lint"
+  },
+  "imports": {
+    "/": "./",
+    "./": "./",
+    "express": "npm:express@^5.1.0",
+    "zod": "npm:zod@^3.24.2",
+    // dev dependencies
+    "@eslint/js": "npm:@eslint/js@^9.23.0",
+    "@types/express": "npm:@types/express@^5.0.1",
+    "eslint": "npm:eslint@^9.23.0",
+    "eslint-config-prettier": "npm:eslint-config-prettier@^10.1.1",
+    "eslint-plugin-functional": "npm:eslint-plugin-functional@^9.0.1",
+    "eslint-plugin-prettier": "npm:eslint-plugin-prettier@^5.2.6",
+    "typescript": "npm:typescript@^5.8.2",
+    "typescript-eslint": "npm:typescript-eslint@^8.29.0"
+  },
+  // "lint": {
+  //   "include": ["src/"],
+  //   "rules": {
+  //     "tags": ["recommended"],
+  //     "include": ["ban-untagged-todo"],
+  //     "exclude": ["no-unused-vars"]
+  //   }
+  // },
+  // "fmt": {
+  //   "useTabs": true,
+  //   "lineWidth": 80,
+  //   "indentWidth": 4,
+  //   "semiColons": true,
+  //   "singleQuote": true,
+  //   "proseWrap": "preserve"
+  // }
+}

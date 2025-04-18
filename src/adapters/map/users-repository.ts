@@ -1,4 +1,4 @@
-import { User, UserEnv } from '../../domain/users.js';
+import { User, UserEnv } from '../../domain/users.ts';
 
 export const makeUserRepository = (
   map: ReadonlyMap<User['id'], User> = new Map(),

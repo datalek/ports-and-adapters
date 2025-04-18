@@ -1,7 +1,7 @@
 import express from 'express';
 import z from 'zod';
-import { registerUser } from '../../domain/users.js';
-import { AppEnv } from './app.js';
+import { registerUser } from '../../domain/users.ts';
+import { AppEnv } from './app.ts';
 
 const RegisterUserBodyCodec = z.object({
   firstName: z.string(),

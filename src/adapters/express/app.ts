@@ -1,9 +1,9 @@
 import express from 'express';
-import { makeRegisterUserHandler } from './register-users.js';
-import { LoggerEnv } from '../../domain/logger.js';
-import { UserEnv } from '../../domain/users.js';
-import { EmailEnv } from '../../domain/email.js';
-import { Config } from '../../config.js';
+import { makeRegisterUserHandler } from './register-users.ts';
+import { LoggerEnv } from '../../domain/logger.ts';
+import { UserEnv } from '../../domain/users.ts';
+import { EmailEnv } from '../../domain/email.ts';
+import { Config } from '../../config.ts';
 
 export type AppEnv = LoggerEnv & UserEnv & EmailEnv;
 

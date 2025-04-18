@@ -1,3 +1,3 @@
-import { LoggerEnv } from '../../domain/logger.js';
+import { LoggerEnv } from '../../domain/logger.ts';
 
 export const makeLogger = (): LoggerEnv['logger'] => console;

@@ -1,5 +1,5 @@
-import { EmailEnv } from './email.js';
-import { LoggerEnv } from './logger.js';
+import { EmailEnv } from './email.ts';
+import { LoggerEnv } from './logger.ts';
 
 // UserEnv contains all the ports needed by the user domain functions.
 export interface UserEnv {

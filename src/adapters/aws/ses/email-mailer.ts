@@ -1,5 +1,5 @@
-import { EmailEnv } from '../../../domain/email.js';
-import { LoggerEnv } from '../../../domain/logger.js';
+import { EmailEnv } from '../../../domain/email.ts';
+import { LoggerEnv } from '../../../domain/logger.ts';
 
 export const makeMailer = (
   logger: LoggerEnv['logger'],
