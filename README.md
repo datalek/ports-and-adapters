@@ -9,10 +9,11 @@ It includes a fake user registration feature.
 This project requires the following tools to works as expected. Make sure to install all the following dependencies using the recommended installation methods.
 
 - **Node.js**
-  Use [nodenv](https://github.com/nodenv/nodenv) to install the required version of `Node.js`.
+  Use [fnm](https://github.com/Schniz/fnm?tab=readme-ov-file#installation) to install the required version of `Node.js`.
 
   ```sh
-  nodenv install $(node -p "require('./package.json').engines.node")
+  # uses `engines.node` field in `package.json`
+  fnm install
   # check that the installed version is correct
   node --version
   ```
