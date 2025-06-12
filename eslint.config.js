@@ -68,7 +68,7 @@ const fneslintConfig = [
   {
     // Disables some rules that would raise errors
     // in the files where the tests are defined
-    files: ['**/*.test.ts'],
+    files: ['**/*.+(test|spec).ts'],
     rules: {
       'functional/no-expression-statements': 'off',
       'functional/no-return-void': 'off',
